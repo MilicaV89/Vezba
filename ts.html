@@ -1,0 +1,48 @@
+<html>
+<head>
+	<script src="js/jquery-1.11.0.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+	<script src="js/proba.js"></script>
+</head>
+
+	<body>
+		<div class="col-md-4 col-md-offset-4">
+			<div class="form-group">
+				<label for="student">Student:</label>
+				<select type="text" id="student" class="form-control" onchange="promeniAktivnog(this)">
+				</select>
+			</div>
+		</div>
+		<div class="col-md-4 col-md-offset-4">	
+			<br />
+			<div class="form-group">
+				<label for="naziv">Naziv:</label>
+				<input type="text" id="naziv" class="form-control"></input>
+			</div>
+			<div class="form-group">
+				<label for="ocena">Ocena:</label>
+				<input type="text" id="ocena" class="form-control"></input>
+			</div>
+			
+
+			<input type="button" id="dodajPredmet" value="Dodaj predmet" class="btn btn-default col-md-4 pull-left">
+			<br />
+			<br />
+
+			<div id="predmeti">
+
+			</div>
+
+			
+			<input type="button" id="izracunajProsecnuOcenu" value="Izracunaj Prosek" class="btn btn-default col-md-4 pull-left">
+
+			<br />
+			<br />
+			<br />
+			<div id="prosecnaOcena">
+
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+Zadatak za pripremu
+
+index.html
+----------------------------------------------------
+Osnovno:
+Izvrsi validaciju forme upotrebom JavaScript-a. Validacija je sledeca:
+Nijedno polje ne sme da bude prazno.
+Polje jmbg je validno ako je uneto 13 cifara.
+Polje grad je validno ako je grad unet velikim slovima (npr. BEOGRAD, NOVI SAD, NIS ...)
+
+
+Definisati funkciju viseg reda callAlertFunction(parametar, callback), ona prima kao parametar objekat sa tekstom upozorenja i
+callback funkciju. Funkcija viseg reda poziva callback funkciju prosledjivanjem primljenog parametra.
+
+Definisati funkciju ispisiPoruku(parametar) koja vrsi alert sa tekstom upozorenja iz primljenog objekta.
+
+Ukoliko polje grad nije validno, pozvati funkciju callAlertFunction kojoj se kao parametar prosledjuje objekat
+upozorenje i funkcija ispisiPoruku kao callback funkcija. Objekat upozorenje je definisan na sledeci nacin:
+var upozorenje = {
+	poruka: "Grad mora biti velikim slovima"
+}
+
+Napredno:
+
+Upotrebom JavaScripta omoguciti sledecu funkcionalnost:
+Kada korisnik napusti polje (iskoristiti onblur) jmbg ili grad u nevalidnom stanju, promeniti
+boju labele polja u crvenu. Ukoliko ih napusti u validnom stanju, boja teksta treba da se vrati na orginalnu boju.
+Samo za polje jmbg: pored promene boje labele, onemoguciti submit dugme.
+Ukoliko napusti u validnom stanju omoguciti submit dugme.
+
+Ako je forma validna, prelazi se na stranicu ts.html.
+
+
+ts.html
+----------------------------------------------------
+Prilikom ucitavanja stranice ts.html ucitavaju se predefinisani studenti kao i student koji je dobijen sa forme, i prvi student se postavlja u objekat aktivan student.
+
+Stranica ts.html sastoji se od select polja koje sadrzi ucitane studente. Ispod select polja nalaze se dva input polja i dugme dodaj predmet. U polja je predvidjeno da se upise naziv i ocena predmeta, a klikom na dugme dodaj predmet povezuje se taj predmet sa aktivnim studentom. Svi povezani (polozeni) predmeti aktivnog
+studenta su ispisani pomocu diva predmeti. (Slika 1)
+
+Ispod diva predmeti se nalazi dugme izracunaj prosecnu ocenu, klikom na dugme izracunaj prosecnu ocenu za aktivnog studenta se racuna prosecna ocena i ispisuje se, u divu
+prosecnaOcena, tekst "Prosecna ocena za studenta: ${ImeStudenta} ${PrezimeStudenta} je ${ProsecnaOcena}" (Slika2)
+
+Implementirati klasu Predmet, koja se sastoji od:
+	-atributa:
+		naziv: string;
+    	ocena: number;
+   	-konstruktora
+
+Implementirati klasu Student, koja se sastoji od:
+	-atributa:
+		private _ime: string;
+    	private _prezime: string;
+    	private _jmbg: number;
+    	private _predmeti: Predmet[]; //Niz predmeta koje ja student polozio (dodao)
+    -konstruktora (prima sve atribute osim niza predmeta, niz predmeta treba da bude prazan niz inicijalno)
+    -geteri za sva polja
+    -seteri za sva polja (osim _predmeti)
+    -metoda:
+    	-dodajPredmet //prima objekat predmet i dodaje ga u niz predmeta (nakon svakog dodavanja novog predmeta potrebno je osveziti spisak predmeta na html stranici)
+    	-refreshPredmeti //Sluzi za ispis predmeta na html, za sve predmete generise tekst sa slike 1 iz niza predmeta i upisuje ih u div predmeti
+    	-getProsek //Metoda racuna i vraca prosecnu ocenu studenta
+
+Implementirati funkciju wireEvents koja povezuje klik dogadjaje sa dugmica dodajPredmet i izracunaj prosecnu ocenu
+	-za dodajPredmet: kupe se informacije o predmetu iz odgvarajucih input polja i pravi se novi objekat predmet, novi objekat se dodaje u aktivnog studenta
+	-za izracunajProsecnuOcenu: podaci iz aktivnog studenta se upisuju u odgovrajuci div
+
+Implmentiraju funkciju promeniAktivnog (funkcija je postavljena kao onChange dogadjaj za selekt polje), koja preuzima studenta ciji jmbg odgovara vrednosti selekt polja (pretovrenu u broj) i dodeljuje ga u promenljivu aktivanStudent. Nakon dodele, funkcija poziva metodu refreshPredmeti nad aktivnim studentom 
+
+
+

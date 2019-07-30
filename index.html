@@ -1,0 +1,65 @@
+<html>
+<head>
+	<meta charset="utf8">
+	<title>Zadatak za pripremu</title>
+	<script src="js/jquery-1.11.0.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/skripta.js"></script>
+	<style>
+	  	.affix {
+	      	top: 0;
+	    	  width: 100%;
+	  	}
+
+	  	.affix + .container-fluid {
+	      padding-top: 70px;
+	  	}
+	  	.redText {
+	  		color: red;
+	  	}
+
+		.blackText {
+			color: black;
+		}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+<div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Zadatak za pripremu</a>
+    </div>
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="#">Forma</a></li>
+    <li><a href="ts.html">TypeScript</a></li>
+  </ul>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<form role="form" action="ts.html" onsubmit="return proveraForme(this)">
+		  			<div class="form-group">
+		    			<label for="usr">Ime:</label>
+		    			<input type="text" name="ime" class="form-control" id="usr">
+		  			</div>
+		  			<div class="form-group">
+		    			<label for="pwd">Prezime:</label>
+		    			<input type="text" name="prezime" class="form-control" id="pwd">
+		  			</div>
+		  			<div class="form-group">
+		    			<label for="jbmg" id="jmbg_label">JMBG:</label>
+		    			<input type="text" name="jmbg" class="form-control" id="jmbg" onblur="proveraJMBG(this)">
+		  			</div>
+		  			<div class="form-group">
+		    			<label for="grad" id="grad_label">Grad:</label>
+		    			<input type="text" name="grad" class="form-control" id="grad" onblur="proveraGrad(this)">
+		  			</div>
+		  			
+		  			<button id="submitBtn" type="submit" class="btn btn-default col-md-4 pull-right">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
